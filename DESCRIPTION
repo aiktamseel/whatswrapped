@@ -8,3 +8,5 @@ Description: Provides functions to parse and structure exported WhatsApp chat lo
     extracting timestamps, message content, and system messages efficiently.
 License: GPL (>= 3)
 Encoding: UTF-8
+URL: https://github.com/aiktamseel/whatswrapped
+BugReports: https://github.com/aiktamseel/whatswrapped/issues
