@@ -6,5 +6,5 @@ Author: Tamseel Ahmad
 Maintainer: Tamseel Ahmad <tamseel.amd@gmail.com>
 Description: Provides functions to parse and structure exported WhatsApp chat logs, 
     extracting timestamps, message content, and system messages efficiently.
-License: use_gpl_license()
+License: GPL (>= 3)
 Encoding: UTF-8
