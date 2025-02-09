@@ -1,0 +1,21 @@
+14/02/2022, 8:04 pm - Messages and calls are end-to-end encrypted. No one outside of this chat, not even WhatsApp, can read or listen to them. Tap to learn more.
+14/02/2022, 7:33 pm - Member 1 created group "abc"
+14/02/2022, 8:04 pm - Member 1 added you
+14/02/2022, 8:05 pm - Member 1 added Member 2
+14/02/2022, 8:05 pm - Member 1 added Member 3
+14/02/2022, 8:20 pm - Member 1: Message 1 Line 1
+14/02/2022, 8:24 pm - Member 2: Message 2 Line 1
+Message 2 Line 2
+Message 2 Line 3
+Message 2 Line 4
+Message 2 Line 5
+Message 2 Line 6
+14/02/2022, 8:25 pm - Member 3: Message 3
+14/02/2022, 8:25 pm - Member 2: <Media omitted>
+14/02/2022, 8:25 pm - Member 1: Message 4 Line 1
+Message 4 Line 2
+Message 4 Line 3
+Message 4 Line 4
+Message 4 Line 5
+Message 4 Line 6
+14/02/2022, 8:25 pm - Member 2: This message was deleted

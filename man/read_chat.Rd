@@ -38,15 +38,12 @@
 }
 \examples{
 # Read full chat without exclusions
-df <- read_chat("chat.txt")
+df <- read_chat("example.txt")
 
 # Exclude system messages
-df <- read_chat("chat.txt", exclude = "settings")
+df <- read_chat("example.txt", exclude = "settings")
 
 # Exclude media and deleted messages
-df <- read_chat("chat.txt", exclude = c("media", "deleted"))
+df <- read_chat("example.txt", exclude = c("media", "deleted"))
 }
-\seealso{
-  \code{\link[utils]{readLines}}
-}
-}
+
