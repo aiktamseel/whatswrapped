@@ -7,7 +7,7 @@ read_chat <- function(file_path, exclude = NULL) {
   msg_index <- 0
 
   current_time <- ""
-  current_sender <- NA
+  current_author <- NA
   current_content <- character()
   current_type <- ""
 
@@ -18,7 +18,7 @@ read_chat <- function(file_path, exclude = NULL) {
         msg_index <- msg_index + 1
         result[[msg_index]] <- list(
           time = current_time,
-          sender = current_sender,
+          author = current_author,
           content = paste(current_content, collapse = "\n"),
           type = current_type
         )
@@ -29,15 +29,15 @@ read_chat <- function(file_path, exclude = NULL) {
       current_time <- parts[1]
       message_content <- parts[2]
 
-      # Extract sender and message text
+      # Extract author and message text
       msg_parts <- strsplit(message_content, ": ", fixed = TRUE)[[1]]
       if (length(msg_parts) > 1) {
-        current_sender <- msg_parts[1]
+        current_author <- msg_parts[1]
         current_content <- msg_parts[2]
         current_type <- ifelse(current_content == "<Media omitted>", "media",
                                ifelse(current_content == "This message was deleted", "deleted", "text"))
       } else {
-        current_sender <- NA
+        current_author <- NA
         current_content <- message_content
         current_type <- "settings"
       }
@@ -55,7 +55,7 @@ read_chat <- function(file_path, exclude = NULL) {
     msg_index <- msg_index + 1
     result[[msg_index]] <- list(
       time = current_time,
-      sender = current_sender,
+      author = current_author,
       content = paste(current_content, collapse = "\n"),
       type = current_type
     )
@@ -69,8 +69,13 @@ read_chat <- function(file_path, exclude = NULL) {
   df <- as.data.frame(lapply(df, unlist))
 
   # Convert columns to proper types
-  df$sender <- factor(df$sender)
+  df$author <- factor(df$author)
   df$type <- factor(df$type, levels = c("text", "media", "deleted", "settings"))
+
+  #Convert time to proper format
+  df$time <- gsub("\u202F", " ", df$time)  # Replace non-breaking space with normal space
+  fmt <- if (grepl("m$", df$time[1])) "%d/%m/%Y, %I:%M %p" else "%d/%m/%Y, %H:%M"
+  df$time <- as.POSIXct(df$time, format = fmt)
 
   # Apply exclusion filter if needed
   if (!is.null(exclude)) {
